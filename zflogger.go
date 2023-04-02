@@ -88,7 +88,7 @@ func Middleware(log zerolog.Logger, filter func(*fiber.Ctx) bool) func(*fiber.Ct
 				})
 			}
 
-			fields.StatusCode = c.Fasthttp.Response.StatusCode()
+			fields.StatusCode = c.Response().StatusCode()  //c.Fasthttp.Response.StatusCode()
 			fields.Latency = time.Since(start).Seconds()
 
 			switch {
